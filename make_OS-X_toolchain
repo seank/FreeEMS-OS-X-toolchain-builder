@@ -38,6 +38,7 @@ mkdir mc9s12x-build
 pushd mc9s12x-build 
 export CC=${CC}
 ${CWD}/FreeScale-s12x-binutils/binutils-2.20/configure --disable-werror --target=m68hc11 --enable-targets=m68hc11,m68hc12,xgate --program-prefix=m68hc11- --disable-nls --prefix=${DSTDIR} && \
+make distclean && \
 make && \
 make install && \
 popd
@@ -61,7 +62,8 @@ fi
 mkdir mc9xgate-build 
 pushd mc9xgate-build 
 export CC=${CC}
-${CWD}/FreeScale-s12x-binutils/binutils-2.20/configure --disable-werror --target=mc9xgate --enable-targets=xgate --program-prefix=mc9xgate- --disable-nls --prefix="$DSTDIR" && \
+${CWD}/FreeScale-s12x-binutils/binutils-2.20/configure --disable-werror --target=xgate --enable-targets=xgate --program-prefix=mc9xgate- --disable-nls --prefix="$DSTDIR" && \
+make distclean && 
 make && \
 make install && \
 popd 
